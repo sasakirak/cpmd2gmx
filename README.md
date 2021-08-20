@@ -38,5 +38,5 @@ python3 gro2cpmd.py -p hoge.top -f fuga.gro
 
 #### CPMD &rarr; GROMACS
 ```
-python3 cpmd2gro.py -p hoge.top -f fuga.gro
+python3 cpmd2gro.py -p hoge.top -f fuga.gro　-c cpmd.xyz
 ```
