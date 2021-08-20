@@ -25,7 +25,7 @@ Preliminary converter between GROMACS and CPMD format
     Open Babel 3.1.0 -- May  8 2020 -- 19:21:06
     ``` 
 
-### Usage
+## Usage
 #### GROMACS &rarr; CPMD
 ```
 python3 gro2cpmd.py -p hoge.top -f fuga.gro
@@ -38,5 +38,18 @@ python3 gro2cpmd.py -p hoge.top -f fuga.gro
 
 #### CPMD &rarr; GROMACS
 ```
-python3 cpmd2gro.py -p hoge.top -f fuga.gro　-c cpmd.xyz
+python3 cpmd2gro.py -p hoge.top -f fuga.gro -c cpmd.xyz -dt [Timestep of trajectory] -cell Lx Ly Lz
 ```
+
+## 補足
+AMBERを使ってる場合は、AntechamberのparmedでAMBER&rarr;GROMACSの変換ができる。  
+(参考: https://github.com/ParmEd/ParmEd)
+```
+import parmed as pmd
+
+# convert GROMACS topology to AMBER format
+gmx_top = pmd.load_file('pmaawaterFE20mer2.top', xyz='pmaawaterFE20mer2.gro')
+gmx_top.save('pmaa.top', format='amber')
+gmx_top.save('pmaa.crd', format='rst7')
+```
+
