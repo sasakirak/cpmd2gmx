@@ -7,16 +7,16 @@ from pathlib import Path
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i',help='gromacs index list')
-parser.add_argument('-f',help='CPMD .xyz file')
+parser.add_argument('-c',help='CPMD .xyz file')
 parser.add_argument('-p',help='gromacs .top file')
-parser.add_argument('-c',help='gromacs .gro file')
+parser.add_argument('-f',help='gromacs .gro file')
 parser.add_argument('-box',nargs=3,default=[100,100,100],help='cell length Lx Ly Lz (A)')
 parser.add_argument('-dt',help='time step between input frames (fs)',default=0.1)
 args = parser.parse_args()
 indlistfile = args.i
-cpmdxyz = args.f
+cpmdxyz = args.c
 topfile = args.p
-grofile = args.c
+grofile = args.f
 
 cellinfo = [str(float(i)/10) for i in args.box]
 timestep = str(args.dt)
